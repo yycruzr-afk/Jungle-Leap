@@ -9,21 +9,29 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.yordin.jungle_leap.Core;
+import com.yordin.jungle_leap.entidades.Jugador;
 import com.yordin.jungle_leap.recursos.Texturas;
 
 public class PantallaJuego implements Screen {
+    //DIBUJO DE PANTALLA Y FUNCIONAMIENTOS BASICOS
     private Core game;
     private SpriteBatch batch;
     private BitmapFont font;
     private ShapeRenderer shape;
+    private float delta = Gdx.graphics.getDeltaTime();
+
+    //JUGADOR
+    private Jugador player;
 
     public PantallaJuego(Core game){
+        //PANTALLA
         this.game = game;
         batch = new SpriteBatch();
         font = new BitmapFont();
         shape = new ShapeRenderer();
 
-
+        //JUGADOR
+        player = new Jugador(500,500);
     }
     @Override
     public void render(float v) {
@@ -38,6 +46,7 @@ public class PantallaJuego implements Screen {
 
         batch.begin();
         batch.draw(Texturas.fondoTextura, 0,0,1920,1080);
+        player.dibujar(batch);
         batch.end();
 
 
@@ -46,11 +55,15 @@ public class PantallaJuego implements Screen {
         shape.end();
     }
     private void logic(){
+        delta = Gdx.graphics.getDeltaTime();
+        player.update(delta);
 
     }
 
     private void input(){
         if(Gdx.input.isKeyPressed(Input.Keys.BACKSPACE)) game.setScreen(new PantallaMenu(game));
+
+        player.mover();
     }
     @Override
     public void dispose() {
