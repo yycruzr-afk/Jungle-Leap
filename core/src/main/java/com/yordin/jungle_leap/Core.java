@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.yordin.jungle_leap.pantallas.PantallaMenu;
+import com.yordin.jungle_leap.recursos.Texturas;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Core extends Game {
@@ -14,6 +15,7 @@ public class Core extends Game {
 
     @Override
     public void create() {
+        Texturas.cargar();
         setScreen(new PantallaMenu(this));
     }
 

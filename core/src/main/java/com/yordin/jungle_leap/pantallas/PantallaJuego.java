@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.yordin.jungle_leap.Core;
+import com.yordin.jungle_leap.recursos.Texturas;
 
 public class PantallaJuego implements Screen {
     private Core game;
@@ -36,8 +37,9 @@ public class PantallaJuego implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
-
+        batch.draw(Texturas.fondoTextura, 0,0,1920,1080);
         batch.end();
+
 
         shape.begin(ShapeRenderer.ShapeType.Line);
         shape.rect(500,500, 100,100);

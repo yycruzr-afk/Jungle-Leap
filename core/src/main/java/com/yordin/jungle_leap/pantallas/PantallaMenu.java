@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.yordin.jungle_leap.Core;
+import com.yordin.jungle_leap.recursos.Texturas;
 
 public class PantallaMenu implements Screen {
     private Core game;
@@ -31,6 +32,10 @@ public class PantallaMenu implements Screen {
 
         batch.begin();
         font.getData().setScale(5f);
+
+        batch.draw(Texturas.fondoTextura, 0,0, 1920,1080);
+
+
         font.draw(batch, "Menu principal", 760,740);
         font.draw(batch, "Menu principal", 760,540);
         font.draw(batch, "Menu principal", 760,340);
